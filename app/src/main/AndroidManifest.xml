@@ -2,24 +2,58 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Internet Permission for API Calls -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- Notification Permissions -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyQuotes_1">
+
+        <!-- Main Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.dailyquotes_1.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Quotes Activity -->
+        <activity
+            android:name="com.example.dailyquotes_1.ui.QuotesActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.dailyquotes_1.ui.MainActivity" />
+
+        <!-- Notes Activity -->
+        <activity
+            android:name="com.example.dailyquotes_1.ui.NotesActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.dailyquotes_1.ui.MainActivity" />
+
+        <!-- Add Note Activity -->
+        <activity
+            android:name="com.example.dailyquotes_1.ui.AddNoteActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.dailyquotes_1.ui.NotesActivity" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name="com.example.dailyquotes_1.ui.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName="com.example.dailyquotes_1.ui.MainActivity" />
+
     </application>
 
 </manifest>
